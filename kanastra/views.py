@@ -76,6 +76,8 @@ class BoletoShipper:
         return
 
 
+# Função mock para teste de processamento dos boletos, visto que essa funcionalidade deveria ser executada
+# por uma rotina agendada de processamento para criação dos arquivos PDFs e envio de emails
 @csrf_exempt
 def trigger_boleto_processing(request):
     """
