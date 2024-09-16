@@ -207,7 +207,6 @@ class FileUploadView(View):
                 f for f in os.listdir(TMP_FILE_DIR) if f.startswith("split_csv_part")
             ]
 
-            breakpoint()
             with transaction.atomic():
                 existing_boletos = set(
                     Boleto.objects.all().values_list("debt_id", flat=True)
@@ -253,7 +252,6 @@ class FileUploadView(View):
                 shutil.rmtree(TMP_FILE_DIR)  # Remove o diretório e seu conteúdo
                 os.makedirs(TMP_FILE_DIR)  # Recria o diretório vazio
 
-            breakpoint()
             logger.warning(ex)
             return JsonResponse(
                 {
